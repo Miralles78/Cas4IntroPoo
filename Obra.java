@@ -2,17 +2,16 @@ public class Obra {
     private String titol;
     private int durada;
     private String autor;
-    private boolean perMajorEdat;
+    private boolean MajorEdat;
 
-    public Obra(String titol, int durada, String autor, boolean perMajorEdat) {
+    public Obra(String titol, int durada, String autor, boolean MajorEdat) {
         this.titol = titol;
         this.durada = durada;
         this.autor = autor;
-        this.perMajorEdat = perMajorEdat;
+        this.MajorEdat = MajorEdat;
     }
-
     public Obra(String titol, int durada, String autor) {
-        this(titol, durada, autor, false);
+        this(titol, durada, autor,true);
     }
 
     public String getTitol() {
@@ -40,12 +39,13 @@ public class Obra {
     }
 
     public boolean isPerMajorEdat() {
-        return perMajorEdat;
+        return MajorEdat;
     }
 
     public void setPerMajorEdat(boolean perMajorEdat) {
-        this.perMajorEdat = perMajorEdat;
+        this.MajorEdat = perMajorEdat;
     }
+
 
     @Override
     public String toString() {
@@ -53,7 +53,7 @@ public class Obra {
                 "Titol:'" + titol + '\'' +
                 ", Durada:" + durada +
                 ", Autor:'" + autor + '\'' +
-                ", Per a Majors d'Edat=" + perMajorEdat +
+                ", Per a Majors d'Edat=" + MajorEdat +
                 '|';
     }
     
