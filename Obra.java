@@ -49,12 +49,12 @@ public class Obra {
 
     @Override
     public String toString() {
-        return "Obra{" +
-                "titol='" + titol + '\'' +
-                ", durada=" + durada +
-                ", autor='" + autor + '\'' +
-                ", perMajorEdat=" + perMajorEdat +
-                '}';
+        return "Obra|" +
+                "Titol:'" + titol + '\'' +
+                ", Durada:" + durada +
+                ", Autor:'" + autor + '\'' +
+                ", Per a Majors d'Edat=" + perMajorEdat +
+                '|';
     }
     
     public static void main(String[] args) {
