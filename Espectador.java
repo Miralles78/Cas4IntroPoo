@@ -56,5 +56,13 @@ public class Espectador {
   public String toString() {
       return nom + " té " + edat + " anys i " + diners + " euros.";
   }
+  public static void main(String[] args){
+    Espectador espectador1 = new Espectador("Navarro", 18, 1000);
+    System.out.println(espectador1.toString());
+    Espectador espectador2 = new Espectador(30, 2000);
+    System.out.println(espectador2.toString());
+    Espectador espectador3 = new Espectador(14, 100);
+    System.out.println(espectador3.toString());
+  }
 }
 
