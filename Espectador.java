@@ -56,33 +56,5 @@ public class Espectador {
   public String toString() {
       return nom + " té " + edat + " anys i " + diners + " euros.";
   }
-    public static void main(String[] args) {
-        Espectador espectador1 = new Espectador("Jordi", 23, 50.0);
-        Espectador espectador2 = new Espectador(17, 30.0);
-        Espectador espectador3 = new Espectador(100.0);
-
-        double preuEntrada = 10.0;
-
-        if (espectador1.majorEdat() && espectador1.teDiners(preuEntrada)) {
-            espectador1.pagarEntrada(preuEntrada);
-            System.out.println(espectador1.getNom() + " ha comprat una entrada.");
-        } else {
-            System.out.println(espectador1.getNom() + " no pot comprar una entrada.");
-        }
-
-        if (espectador2.majorEdat() && espectador2.teDiners(preuEntrada)) {
-            espectador2.pagarEntrada(preuEntrada);
-            System.out.println(espectador2.getNom() + " ha comprat una entrada.");
-        } else {
-            System.out.println(espectador2.getNom() + " no pot comprar una entrada.");
-        }
-
-        if (espectador3.majorEdat() && espectador3.teDiners(preuEntrada)) {
-            espectador3.pagarEntrada(preuEntrada);
-            System.out.println(espectador3.getNom() + " ha comprat una entrada.");
-        } else {
-            System.out.println(espectador3.getNom() + " no pot comprar una entrada.");
-        }
-    }
 }
 
