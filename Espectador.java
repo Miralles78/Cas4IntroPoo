@@ -64,5 +64,13 @@ public class Espectador {
     Espectador espectador3 = new Espectador(14, 100);
     System.out.println(espectador3.toString());
   }
+
+public boolean esObraPerAdults() {
+    return false;
+}
+
+public boolean potEntrar(double preu) {
+    return false;
+}
 }
 
