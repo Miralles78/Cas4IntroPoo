@@ -79,8 +79,27 @@ public class Sessio {
     public boolean potEntrar(Espectador espectador) {
         return espectador != null && espectador.majorEdat() && (!esObraPerAdults() || espectador.esObraPerAdults());
     }
-    public static void main(String[] args){
-        Espectador espectador1 = new Espectador(null, 0, 0);
-        System.out.println(espectador1);
+            public static void main(String[] args) {
+            // Crear una sessió de teatre amb 3 files i 4 columnes de seients
+            Sessio sessio = new Sessio("Obra per adults", 15.0, 20, 1, 3, 4);
+    
+            // Crear espectadors i assignar-los a seients disponibles
+            Espectador e1 = new Espectador("John", 25, false);
+            Espectador e2 = new Espectador("Mary", 18, true);
+            Espectador e3 = new Espectador("Bob", 35, true);
+    
+            sessio.assignarSeient(0, 0, e1);
+            sessio.assignarSeient(1, 2, e2);
+            sessio.assignarSeient(2, 1, e3);
+    
+            // Mostrar la recaptació de la sessió
+            System.out.println("Recaptació: " + sessio.calcularRecaptacio());
+    
+            // Provar la funció esObraPerAdults
+            System.out.println("És obra per adults? " + sessio.esObraPerAdults());
+    
+            // Crear un espectador menor d'edat i comprovar si pot entrar a la sessió
+            Espectador e4 = new Espectador("Alex", 16, true);
+            System.out.println("Pot entrar el espectador Alex? " + sessio.potEntrar(e4));
+        }
     }
-}
