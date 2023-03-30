@@ -58,14 +58,13 @@ public class Obra {
     }
     
     public static void main(String[] args) {
-        Obra obra1 = new Obra("La casa de Bernarda Alba", 90, "Federico García Lorca", true);
+        Obra obra1 = new Obra("La casa de Bernarda Alba", 90, "Federico García Lorca");
         Obra obra2 = new Obra("El pati", 120, "Jordi Galceran");
-
+        obra1.setPerMajorEdat(false);
         System.out.println(obra1);
-        System.out.println(obra2);
 
         obra2.setPerMajorEdat(true);
-        System.out.println(obra2.isPerMajorEdat());
+        System.out.println(obra2);
     }
 }
 
