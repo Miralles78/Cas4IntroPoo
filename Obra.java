@@ -62,7 +62,6 @@ public class Obra {
         Obra obra2 = new Obra("El pati", 120, "Jordi Galceran");
         obra1.setPerMajorEdat(false);
         System.out.println(obra1);
-
         obra2.setPerMajorEdat(true);
         System.out.println(obra2);
     }

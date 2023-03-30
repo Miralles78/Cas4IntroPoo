@@ -17,7 +17,10 @@ public class Espectador {
       this("anonim", 99, diners);
   }
 
-  public String getNom() {
+  public Espectador(String nom2, int edat2, boolean b) {
+}
+
+public String getNom() {
       return nom;
   }
 
