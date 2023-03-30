@@ -1,7 +1,9 @@
+package Teatregrama;
 public class Espectador {
   private String nom;
   private int edat;
   private double diners;
+  private double preuEntrada;
 
   public Espectador(String nom, int edat, double diners) {
       this.nom = nom;
@@ -52,8 +54,8 @@ public String getNom() {
       return edat >= 18;
   }
 
-  public boolean teDiners(double preuEntrada) {
-      return diners >= preuEntrada;
+  public boolean teDiners() {
+    return diners >= preuEntrada;
   }
 
   public String toString() {

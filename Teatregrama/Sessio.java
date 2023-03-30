@@ -1,3 +1,4 @@
+package Teatregrama;
 import java.lang.reflect.Array;
 
 public class Sessio {
@@ -46,13 +47,16 @@ public class Sessio {
     public void setDia(int dia) {
         this.dia = dia;
     }
+    public Espectador[][] getSeients() {
+        return seients;
+    }
 
     public boolean esSeientBuit(int fila, int columna) {
         return seients[fila][columna] == null;
     }
 
-    public boolean assignarSeient(int fila, int columna, Espectador espectador) {
-        if (esSeientBuit(fila, columna) && espectador != null && espectador.potEntrar(preu)) {
+    public boolean assignarEspectador(int fila, int columna, Espectador espectador) {
+        if (esSeientBuit(fila, columna)) {
             seients[fila][columna] = espectador;
             return true;
         } else {
@@ -88,9 +92,9 @@ public class Sessio {
             Espectador e2 = new Espectador("Mary", 18, true);
             Espectador e3 = new Espectador("Bob", 35, true);
     
-            sessio.assignarSeient(0, 0, e1);
-            sessio.assignarSeient(1, 2, e2);
-            sessio.assignarSeient(2, 1, e3);
+            sessio.assignarEspectador(0, 0, e1);
+            sessio.assignarEspectador(1, 2, e2);
+            sessio.assignarEspectador(2, 1, e3);
     
             // Mostrar la recaptació de la sessió
             System.out.println("Recaptació: " + sessio.calcularRecaptacio());
@@ -102,4 +106,6 @@ public class Sessio {
             Espectador e4 = new Espectador("Alex", 16, true);
             System.out.println("Pot entrar el espectador Alex? " + sessio.potEntrar(e4));
         }
+
+            
     }

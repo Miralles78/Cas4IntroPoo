@@ -1,3 +1,4 @@
+package Teatregrama;
 public class Obra {
     private String titol;
     private int durada;
@@ -14,6 +15,8 @@ public class Obra {
         this(titol, durada, autor,true);
     }
 
+    public Obra(String titol2, int durada2) {
+    }
     public String getTitol() {
         return titol;
     }
