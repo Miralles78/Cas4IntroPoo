@@ -1,5 +1,6 @@
 package Teatregrama;
 import java.lang.reflect.Array;
+import java.time.LocalTime;
 
 public class Sessio {
     private String obra;
@@ -14,6 +15,9 @@ public class Sessio {
         this.hora = hora;
         this.dia = dia;
         this.seients = new Espectador[files][columnes];
+    }
+
+    public Sessio(String dataFormatada, LocalTime horaInici, float preu2) {
     }
 
     public String getObra() {

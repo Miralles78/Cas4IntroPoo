@@ -1,9 +1,15 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import Teatregrama.*;
 
 public class ProgramaInicial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        LocalDate data = LocalDate.now();
+        
 
 // Crear obra
 System.out.println("Introdueix les dades de l'obra:");
@@ -42,8 +48,18 @@ scanner.nextLine(); // Consumir la línia en blanc
 Sessio[] sessions = new Sessio[numSessions];
 for (int i = 0; i < numSessions; i++) {
   System.out.println("Introdueix les dades de la sessió " + (i+1) + ":");
-  System.out.print("Dia (dd/mm/aaaa): ");
+  DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+String dataFormatada = data.format(dateFormatter);
+  System.out.println("Dia (dd/mm/aaaa): " + dataFormatada );
+  System.out.print("Hora d'inici (format 24 hores, hh:mm): ");
+String horaIniciString = scanner.nextLine();
+DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+LocalTime horaInici = LocalTime.parse(horaIniciString, timeFormatter);
+System.out.print("Preu de l'entrada: ");
+float preu = scanner.nextFloat();
+scanner.nextLine(); // Consumir la línia en blanc
+sessions[i] = new Sessio(dataFormatada, horaInici, preu);
+}
   
     }
-}
 }
