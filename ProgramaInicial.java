@@ -9,6 +9,8 @@ public class ProgramaInicial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         LocalDate data = LocalDate.now();
+        LocalTime horaInici;
+        String dataFormatada;
         
 
 // Crear obra
@@ -49,17 +51,29 @@ Sessio[] sessions = new Sessio[numSessions];
 for (int i = 0; i < numSessions; i++) {
   System.out.println("Introdueix les dades de la sessió " + (i+1) + ":");
   DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-String dataFormatada = data.format(dateFormatter);
+    dataFormatada = data.format(dateFormatter);
   System.out.println("Dia (dd/mm/aaaa): " + dataFormatada );
   System.out.print("Hora d'inici (format 24 hores, hh:mm): ");
 String horaIniciString = scanner.nextLine();
 DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-LocalTime horaInici = LocalTime.parse(horaIniciString, timeFormatter);
+horaInici = LocalTime.parse(horaIniciString, timeFormatter);
 System.out.print("Preu de l'entrada: ");
 float preu = scanner.nextFloat();
 scanner.nextLine(); // Consumir la línia en blanc
 sessions[i] = new Sessio(dataFormatada, horaInici, preu);
 }
+// Imprimir llista d'espectadors per sessió
+for (Sessio sessio : sessions) {
+    System.out.println("Llista d'espectadors per a la sessió del " + dataFormatada + horaInici);
+    espectadors = sessio.getEspectadors();
+    if (espectadors != null) {
+        for (Espectador espectador : espectadors) {
+            System.out.println("- " + espectador.getNom() + " (" + espectador.getEdat() + " anys)");
+        }
+    }
+    System.out.println();
+}
+
   
     }
 }

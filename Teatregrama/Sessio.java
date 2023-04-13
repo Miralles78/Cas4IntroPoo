@@ -43,14 +43,6 @@ public class Sessio {
     public void setHora(int hora) {
         this.hora = hora;
     }
-
-    public int getDia() {
-        return dia;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
     public Espectador[][] getSeients() {
         return seients;
     }
@@ -110,6 +102,10 @@ public class Sessio {
             Espectador e4 = new Espectador("Alex", 16, true);
             System.out.println("Pot entrar el espectador Alex? " + sessio.potEntrar(e4));
         }
+
+            public Espectador[] getEspectadors() {
+                return null;
+            }
 
             
     }
