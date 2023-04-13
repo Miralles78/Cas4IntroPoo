@@ -1,23 +1,29 @@
 package Teatregrama;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 public class Sessio {
     private String obra;
-    private double preu;
-    private int hora;
-    private int dia;
+    private static double preu;
+    private static LocalTime horaInici;
+    private static String dataFormatada;
     private Espectador[][] seients;
 
-    public Sessio(String obra, double preu, int hora, int dia, int files, int columnes) {
+    public Sessio(String obra, double preu, int files, int columnes) {
         this.obra = obra;
         this.preu = preu;
-        this.hora = hora;
-        this.dia = dia;
         this.seients = new Espectador[files][columnes];
     }
 
-    public Sessio(String dataFormatada, LocalTime horaInici, float preu2) {
+    public Sessio(String dataFormatada, float preu2) {
+    }
+
+    public Sessio(String dataFormatada, LocalTime horaInici, double preu2) {
+    }
+
+    public Sessio(LocalDate data2, LocalTime hora2, double preu2) {
     }
 
     public String getObra() {
@@ -34,14 +40,6 @@ public class Sessio {
 
     public void setPreu(double preu) {
         this.preu = preu;
-    }
-
-    public int getHora() {
-        return hora;
-    }
-
-    public void setHora(int hora) {
-        this.hora = hora;
     }
     public Espectador[][] getSeients() {
         return seients;
@@ -81,7 +79,7 @@ public class Sessio {
     }
             public static void main(String[] args) {
             // Crear una sessió de teatre amb 3 files i 4 columnes de seients
-            Sessio sessio = new Sessio("Obra per adults", 15.0, 20, 1, 3, 4);
+            Sessio sessio = new Sessio(dataFormatada, horaInici, preu);
     
             // Crear espectadors i assignar-los a seients disponibles
             Espectador e1 = new Espectador("John", 25, false);
@@ -105,6 +103,27 @@ public class Sessio {
 
             public Espectador[] getEspectadors() {
                 return null;
+            }
+
+            public String getDia() {
+                return dataFormatada;
+            }
+            
+            public LocalTime getHora() {
+                return horaInici;
+            }
+
+            public void setEspectadors(Espectador[] espectadors) {
+            }
+
+            public boolean isPermesAcces(Espectador espectador) {
+                return false;
+            }
+
+            public void afegirEspectador(Espectador espectador) {
+            }
+
+            public void setEspectadors(List<Espectador> espectadorsSessio) {
             }
 
             

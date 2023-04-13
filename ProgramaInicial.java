@@ -9,8 +9,8 @@ public class ProgramaInicial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         LocalDate data = LocalDate.now();
-        LocalTime horaInici;
         String dataFormatada;
+        LocalTime horaInici;
         
 
 // Crear obra
@@ -51,7 +51,7 @@ Sessio[] sessions = new Sessio[numSessions];
 for (int i = 0; i < numSessions; i++) {
   System.out.println("Introdueix les dades de la sessió " + (i+1) + ":");
   DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    dataFormatada = data.format(dateFormatter);
+     dataFormatada = data.format(dateFormatter);
   System.out.println("Dia (dd/mm/aaaa): " + dataFormatada );
   System.out.print("Hora d'inici (format 24 hores, hh:mm): ");
 String horaIniciString = scanner.nextLine();
@@ -62,18 +62,31 @@ float preu = scanner.nextFloat();
 scanner.nextLine(); // Consumir la línia en blanc
 sessions[i] = new Sessio(dataFormatada, horaInici, preu);
 }
-// Imprimir llista d'espectadors per sessió
+// Assignar espectadors a les sessions
 for (Sessio sessio : sessions) {
-    System.out.println("Llista d'espectadors per a la sessió del " + dataFormatada + horaInici);
-    espectadors = sessio.getEspectadors();
-    if (espectadors != null) {
-        for (Espectador espectador : espectadors) {
-            System.out.println("- " + espectador.getNom() + " (" + espectador.getEdat() + " anys)");
+    for (Espectador espectador : espectadors) {
+        if (sessio.isPermesAcces(espectador)) {
+            sessio.afegirEspectador(espectador);
         }
     }
-    System.out.println();
+    // Save the array of spectators to the session object
+    sessio.setEspectadors(espectadors);
 }
-
-  
+for (Sessio sessio : sessions) {
+    dataFormatada = sessio.getDia();
+    dataFormatada = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    horaInici = sessio.getHora();
+    System.out.println("Llista d'espectadors per a la sessió del " + dataFormatada + " a les " + horaInici + ":");
+    Espectador[] espectadorsSessio = sessio.getEspectadors();
+    if (espectadorsSessio != null) {
+    for (Espectador espectador : espectadorsSessio) {
+        System.out.println("- " + espectador.getNom() + " (" + espectador.getEdat() + " anys)");
     }
+} else {
+    System.out.println("- No hi ha espectadors per a aquesta sessió");
+}
+System.out.println();
+
+    }
+}
 }
