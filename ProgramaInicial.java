@@ -11,7 +11,7 @@ public class ProgramaInicial {
         LocalDate data = LocalDate.now();
         String dataFormatada;
         LocalTime horaInici;
-        
+        int numEspectadors;
 
 // Crear obra
 System.out.println("Introdueix les dades de l'obra:");
@@ -28,9 +28,9 @@ Obra obra = new Obra(titol, durada, autor, perAdults);
 
 // Crear espectadors
 System.out.print("Quants espectadors vols crear? ");
-int numEspectadors = scanner.nextInt();
+numEspectadors = scanner.nextInt();
 scanner.nextLine(); // Consumir la línia en blanc
-Espectador[] espectadors = new Espectador[numEspectadors];
+Espectador[] espectadorsInserits = new Espectador[numEspectadors];
 for (int i = 0; i < numEspectadors; i++) {
   System.out.println("Introdueix les dades de l'espectador " + (i+1) + ":");
   System.out.print("Nom: ");
@@ -40,8 +40,10 @@ for (int i = 0; i < numEspectadors; i++) {
   System.out.print("Diners que té: ");
   float diners = scanner.nextFloat();
   scanner.nextLine(); // Consumir la línia en blanc
-  espectadors[i] = new Espectador(nom, edat, diners);
+  Espectador espectador = new Espectador(nom, edat, diners);
+  espectadorsInserits[i] = espectador;
 }
+
 
 // Crear sessions
 System.out.print("Quantes sessions vols crear? ");
@@ -62,16 +64,7 @@ float preu = scanner.nextFloat();
 scanner.nextLine(); // Consumir la línia en blanc
 sessions[i] = new Sessio(dataFormatada, horaInici, preu);
 }
-// Assignar espectadors a les sessions
-for (Sessio sessio : sessions) {
-    for (Espectador espectador : espectadors) {
-        if (sessio.isPermesAcces(espectador)) {
-            sessio.afegirEspectador(espectador);
-        }
-    }
-    // Save the array of spectators to the session object
-    sessio.setEspectadors(espectadors);
-}
+
 for (Sessio sessio : sessions) {
     dataFormatada = sessio.getDia();
     dataFormatada = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
