@@ -10,7 +10,6 @@ public class Sessio {
     private static LocalTime horaInici;
     private static String dataFormatada;
     private Espectador[][] seients;
-    private Butaca[][] butaques;
 
     public Sessio(String obra, double preu, int files, int columnes) {
         this.obra = obra;
@@ -125,12 +124,7 @@ public class Sessio {
             }
 
             public void setEspectadors(List<Espectador> espectadorsSessio) {
-            }
-
-            public Butaca[][] getButaques() {
-                return this.butaques;
-              }
-              
+            }             
 
             
     }
